@@ -211,25 +211,45 @@ li{
 
 .pagination > ul >li {
     list-style: none;
-    cursor: pointer;
     line-height: 2;
-    padding: 8px;
-
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
 }
 
-/* .pagination > ul > li.btn-prev{
-    background-color: #007F86;
+.pagination > ul >li.numb {
+    width: 30px;
+    text-align: center;
+    margin: 0 3px;
+}
+
+.pagination > ul >li.dots {
+    cursor:default;
+}
+
+.pagination > ul > li.btn {
+    padding: 0 20px;
+}
+
+.pagination > ul > li.prev{
     border-radius: 25px 5px 5px 25px;
-    width: 55px;
     text-align: center;
 }
 
-.pagination > ul > li.btn-next{
-    background-color: #007F86;
+.pagination > ul > li.next{
     border-radius: 5px 25px 25px 5px;
-    width: 55px;
     text-align: center;
-} */
+}
+
+.pagination > ul > li.active,
+.pagination > ul > li.numb:hover,
+.pagination > ul > li.btn:hover{
+    background-color: #FFA900;
+    color: #FFF;
+}
 
 
 
