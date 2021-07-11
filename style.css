@@ -58,7 +58,7 @@ body{
         align-items: center;
     }
 }
-.container > nav{
+.container > #Website-Pages{
     display: flex;
     justify-content: space-between;
 }
@@ -88,6 +88,24 @@ header{
     color: #F6BE3B;
 }
 
+.ItemsPerPage{
+    position: relative;
+}
+
+#number-of-items{
+    position: absolute;
+    width: 40%;
+}
+
+.sub-menu{
+    position: absolute;
+    box-shadow: 0 0 10px rgba(0 , 0, 0, 0.2);
+    list-style: none;
+    background-color: seashell;
+    left: 0;
+    top:100%;
+}
+
 
 /*--------------------------- footer ---------------------------*/
 
@@ -115,21 +133,21 @@ header{
     color: #FFF;
 }
 
-nav > ul{
+#Website-Pages > ul{
     list-style: none;
     display: flex;
     padding: 0;
 }
 
-nav a{
+#Website-Pages a{
     text-decoration: none;
     color: #FFF;
     font-weight: 700;
     padding: 0.25em 0;
 }
 
-nav a:hover,
-nav a:focus{
+#Website-Pages a:hover,
+#Website-Pages a:focus{
     color: #F6BE3B;
 }
 
