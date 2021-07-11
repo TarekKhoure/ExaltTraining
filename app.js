@@ -13,6 +13,7 @@ function hideLoader() {
 
 $(document).ready(function () {
     showLoader();
+
     $.get("https://jsonplaceholder.typicode.com/todos/", function (data, status) {
         hideLoader();
         let dataLength = data.length;
@@ -24,7 +25,7 @@ $(document).ready(function () {
             <div class = 'item-image-container'> \
             <div class= 'item-image'></div>\
             </div>\
-            <p>★★★★☆</p> \
+            <p style=" grid-row: 2;">★★★★☆</p> \
             <div class ='last-section' id='test_${i}'></div>\
             </div>`);
 
@@ -40,7 +41,7 @@ $(document).ready(function () {
             const para1 = document.createElement("p");
             para1.className = "price";
             const node1 = document.createTextNode("Price: " + data[i].id + "$");
-            para1.appendChild(node1); // asdas
+            para1.appendChild(node1);
             const element1 = document.getElementById(`test_${i}`);
             element1.appendChild(para1);
         }
@@ -48,8 +49,8 @@ $(document).ready(function () {
         $(".item-container").on("click", function (e) {
             // console.log($(e.currentTarget).attr('productId'));
             const item_id = $(e.currentTarget).attr('productId');
-            // location.href = "./item.html";
-            location.assign("https://jsonplaceholder.typicode.com/todos/" + $(e.currentTarget).attr('productId'));
+            location.href = "./item.html?"+item_id;
+            // location.assign("https://jsonplaceholder.typicode.com/todos/" + $(e.currentTarget).attr('productId'));
         });
     });
 

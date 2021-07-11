@@ -1,0 +1,87 @@
+body{
+    margin: 0;
+    font-family: 'Ubuntu',sans-serif;
+    background-image: radial-gradient(circle, #262b34, #575961, #8c8d93, #c4c4c7, #ffffff);
+}
+
+.wrapper{
+    margin: 2em;    
+}
+
+.row1{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-gap: 1rem;
+    text-align: left;
+    margin-top: 5em;
+    margin-bottom:2em;
+}
+
+.row1 > div{
+    
+    border-radius: 5.5rem;
+    /* border: 1px solid #004969; */
+    padding: 2em;
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    background-color: #FFF;
+}
+
+.last-section{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background: #F6BE3B;
+    color: #0A1D37;
+    padding-left:0.5rem;
+    font-weight: 700;
+    border-radius: 15px;
+}
+
+.price{
+    align-self: flex-start;
+    color: #0A1D37;
+    font-weight: 700;
+}
+
+.description{
+    width: 10rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-image-container{
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* ------------------------- media queires -----------------------------*/
+
+@media (max-width: 463px){
+    .row1{
+        grid-template-columns: 1fr;
+    }
+
+    .item-image-container{
+        justify-content: center;
+    }
+}
+
+@media (max-width: 400px){
+    .row1{
+        grid-template-columns: 1fr;
+    }
+
+    .item-image-container{
+        justify-content: center;
+    }
+}
+/* ---------------------------------------------------------------- */
+
+.item-image
+{
+    background-image: url(./images/AIRPRO.jpg);
+    background-repeat: no-repeat;
+    height: 11rem;
+    width: 9rem;
+}

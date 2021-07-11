@@ -41,9 +41,9 @@
 body{
     margin: 0;
     font-family: 'Ubuntu',sans-serif;
+    background-image: linear-gradient(to bottom, #1f1f1f, #3f3f41, #626266, #86878d, #acafb7, #aeb0b9, #afb2ba, #b1b3bc, #8e8e95, #6b6b70, #4b4b4c, #2c2c2c);
 }
-
-.container{
+    .container{
     display: flex;
     justify-content: space-around;
 }
@@ -64,7 +64,7 @@ body{
 }
 
 header{
-    background: #0A1D37;
+    background: #1F1F1F;
     position: fixed;
     width: 100%;
     top: 0;
@@ -73,7 +73,7 @@ header{
 .SignUp-In{
     display: flex;
     justify-content: space-between;
-    width: 10em;
+    /* width: 10em; */
 }
 .sign-up-link, .sign-in-link{
     font-family: 'Lora',serif;
@@ -81,17 +81,18 @@ header{
     color: #FFF;
     text-decoration: none;
     font-size: 1.2rem;
+    padding:  0 2px;
 }
 
 .sign-up-link:hover, .sign-in-link:hover{
-    color: #FF8303;
+    color: #F6BE3B;
 }
 
 
 /*--------------------------- footer ---------------------------*/
 
 .bottom-container{
-    background-color: #0A1D37;
+    background-color: #2C2C2C;
     color: #FFF;
     text-align: center;
     padding: 0.5em;
@@ -103,7 +104,7 @@ header{
 }
 
 .footer-link:hover{
-    color: #FF8303;
+    color: #F6BE3B;
 }
 
 /* --------------------------------------------------------*/
@@ -129,7 +130,7 @@ nav a{
 
 nav a:hover,
 nav a:focus{
-    color: #FF8303;
+    color: #F6BE3B;
 }
 
 .current-page{
@@ -156,31 +157,37 @@ li{
 .row1{
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
-    grid-gap: 1rem;
+    grid-gap: 1.5rem;
     text-align: left;
-    margin-top: 5em;
+    margin-top: 6em;
     margin-bottom:2em;
 }
 
 .row1 > div{
     
-    border-radius: 1.5rem;
-    border: 1px solid #FF8303;
-    padding: 1em;
+    border-radius: 2.5rem;
+    /* border: 1px solid #004969; */
+    padding: 2em;
+    box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+    background-color: #FFF;
 }
 
 .last-section{
     display: flex;
     flex-direction: column;
     text-align: left;
-    background: #0A1D37;
+    background: #007F86;
     color: #FFF;
     padding-left:0.5rem;
+    font-weight: 700;
+    border-radius: 15px;
+    /* background-image: linear-gradient(to bottom, #41444a, #5f6166, #7e7f83, #9e9ea2, #bfbfc2); */
 }
 
 .price{
     align-self: flex-start;
-    color: #FF8303;
+    color: #fff;
+    font-weight: 700;
 }
 
 .description{
