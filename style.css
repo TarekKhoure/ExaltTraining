@@ -150,8 +150,6 @@ li{
 
 .wrapper{
     margin: 2em;
-    
-    /* width: 90%; */
 }
 
 .row1{
@@ -166,8 +164,7 @@ li{
 .row1 > div{
     
     border-radius: 2.5rem;
-    /* border: 1px solid #004969; */
-    padding: 2em;
+    padding: 2em 1em;
     box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
     background-color: #FFF;
 }
