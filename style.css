@@ -208,13 +208,7 @@ li{
         align-content: center;
     }
     .row1{
-        grid-template-columns: repeat(3, 1fr); 
-    }
-    .row2{
-        grid-template-columns: repeat(3, 1fr); 
-    }
-    .row3{
-        grid-template-columns: repeat(3, 1fr); 
+        grid-template-columns: repeat(2, 1fr); 
     }
 }
 
@@ -240,7 +234,7 @@ li{
 }
 
 
-@media (max-width: 463px){
+@media (max-width: 475px){
     .row1{
         grid-template-columns: 1fr;
         margin-top: 7em; 
