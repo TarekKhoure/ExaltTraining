@@ -40,7 +40,7 @@ $(document).ready(function () {
             const para1 = document.createElement("p");
             para1.className = "price";
             const node1 = document.createTextNode("Price: " + data[i].id + "$");
-            para1.appendChild(node1);
+            para1.appendChild(node1); // asdas
             const element1 = document.getElementById(`test_${i}`);
             element1.appendChild(para1);
         }
