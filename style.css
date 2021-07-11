@@ -1,0 +1,270 @@
+/* ------------------------------- LOADER ---------------------------------- */
+.loader{
+    height: 100vh;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: #111;
+}
+
+.loader > div{
+    background: #FFF;
+    width: 16px;
+    height: 32px;
+    margin-left: 10px;
+    animation: loader 1.2s infinite;
+}
+
+@keyframes loader{
+    50%{
+        height: 64px;
+    }
+}
+
+.loader > div:nth-child(1){
+    background: #FF9F1A;
+    animation-delay: -0.4s ;
+}
+
+.loader > div:nth-child(2){
+    background: #FED330;
+    animation-delay: -0.2s ;
+}
+
+.loader > div:nth-child(3){
+    background: #FFFA65;
+    animation-delay: 0 ;
+}
+
+/* ------------------------------------------------------------------- */
+body{
+    margin: 0;
+    font-family: 'Ubuntu',sans-serif;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.container > div{
+    margin: 0 3em;
+}
+
+@media (max-width: 400px){
+    .container{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.container > nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+header{
+    background: #0A1D37;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.SignUp-In{
+    display: flex;
+    justify-content: space-between;
+    width: 10em;
+}
+.sign-up-link, .sign-in-link{
+    font-family: 'Lora',serif;
+    font-weight: 700;
+    color: #FFF;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.sign-up-link:hover, .sign-in-link:hover{
+    color: #FF8303;
+}
+
+
+/*--------------------------- footer ---------------------------*/
+
+.bottom-container{
+    background-color: #0A1D37;
+    color: #FFF;
+    text-align: center;
+    padding: 0.5em;
+}
+
+.footer-link{
+    color: #FFF;
+    text-decoration: none;
+}
+
+.footer-link:hover{
+    color: #FF8303;
+}
+
+/* --------------------------------------------------------*/
+
+.Company-Name, .SignUp-In{
+    font-family: 'Lora',serif;
+    font-weight: 700;
+    color: #FFF;
+}
+
+nav > ul{
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+nav a{
+    text-decoration: none;
+    color: #FFF;
+    font-weight: 700;
+    padding: 0.25em 0;
+}
+
+nav a:hover,
+nav a:focus{
+    color: #FF8303;
+}
+
+.current-page{
+    border-bottom: 1px solid #FFF;
+}
+
+.current-page:hover{
+    color: #FFF;
+}
+
+li{
+   margin-left: 1em ;
+}
+
+/* ----------------------------- items ---------------------------*/
+
+
+.wrapper{
+    margin: 2em;
+    
+    /* width: 90%; */
+}
+
+.row1{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-gap: 1rem;
+    text-align: left;
+    margin-top: 5em;
+    margin-bottom:2em;
+}
+
+.row1 > div{
+    
+    border-radius: 1.5rem;
+    border: 1px solid #FF8303;
+    padding: 1em;
+}
+
+.last-section{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background: #0A1D37;
+    color: #FFF;
+    padding-left:0.5rem;
+}
+
+.price{
+    align-self: flex-start;
+    color: #FF8303;
+}
+
+.description{
+    width: 10rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item-image-container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ------------------------- media queires -----------------------------*/
+@media (max-width: 743px){
+    .container{
+        align-content: center;
+    }
+    .row1{
+        grid-template-columns: repeat(3, 1fr); 
+    }
+    .row2{
+        grid-template-columns: repeat(3, 1fr); 
+    }
+    .row3{
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+@media (max-width: 600px){
+    .container{
+        align-content: center;
+    }
+    .row1{
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 5em; 
+    }
+}
+
+/* case: when nav bar is close their will be no argin */
+@media (max-width: 543px){ 
+    .container{
+        align-content: center;
+    }
+    .row1{
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 6em; 
+    }
+}
+
+
+@media (max-width: 463px){
+    .row1{
+        grid-template-columns: 1fr;
+        margin-top: 7em; 
+    }
+
+    .item-image-container{
+        justify-content: center;
+    }
+}
+
+@media (max-width: 400px){
+    .row1{
+        grid-template-columns: 1fr;
+        margin-top: 12em; 
+    }
+
+    .item-image-container{
+        justify-content: center;
+    }
+}
+/* ---------------------------------------------------------------- */
+
+.item-image
+{
+    background-image: url(./images/AIRPRO.jpg);
+    background-repeat: no-repeat;
+    height: 11rem;
+    width: 9rem;
+}
+
+/* --------------------------------------------------------------- */
+
+
+

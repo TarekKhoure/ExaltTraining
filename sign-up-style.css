@@ -1,0 +1,168 @@
+/* -------------- fonts ------------------- */
+@font-face {
+    font-family: Roboto-Regular;
+    src: url(./fonts/Roboto-Thin.ttf);
+}
+
+@font-face {
+    font-family: Roboto-Bold;
+    src: url(./fonts/Roboto-Bold.ttf);
+}
+
+
+/* ----------------- body------------------ */
+body{
+    margin: 0;
+    background-image: url(./images/login-background.png);
+    background-repeat: no-repeat;
+}
+
+/* --------------------- first div ----------------------- */
+
+.Rectangle-3-Copy-2{
+    width: 280px;
+    padding: 20px 20px 20px 20px;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    background-color: #ffffff;
+    position: absolute;
+    right: 0;
+    height: 100%;
+}
+
+.logo-header-ipad{
+    width: 263px;
+    margin: 22px 34px 0 20px;
+    font-family: Roboto-Regular;
+}
+
+.hp-icon{
+    background-image: url(./hp.png);
+    height: 30px;
+    width: 30px;
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: 30px;
+}
+
+.Workflow-tool{
+    margin-top: 10px;
+    margin-left: 40px;
+    font-family: Roboto-Regular;
+    font-size: 12px;
+    color: #5a5a5a;
+}
+
+.Testing-Hub-Manageme{
+    font-family: Roboto-Regular;
+    font-size: 18px;
+    color: #5a5a5a;
+    margin-left: 40px;
+    position: relative;
+    bottom: 20px;
+
+}
+
+
+/* --------------------- Sign Up --------------------------- */
+.Sign-Up{
+    width: 70px;
+    font-family: Roboto-Bold;
+    font-size: 18px;
+    color: #0096d6;
+    margin-left: 20px;
+}
+
+.Rectangle-2-Copy-14{
+    width: 260px;
+}
+
+.sign-up-div{
+    border-bottom: 1px solid #b9b9b9;
+    padding-bottom: 5.7px;
+    margin-left: 20px;
+}
+
+.sign-up-div > input,
+.sign-up-div1 > input{
+    border-width: 0ch;
+}
+
+.sign-up-div1{
+    border-bottom: 1px solid #b9b9b9;
+    padding-bottom: 5.7px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.sign-up-botton{
+    font-family: Roboto-Bold;
+    width: 260px;
+    margin-left: 20px;
+    background-color: #0096d6;
+    color: white;
+    margin-top: 20px;
+    padding: 6px;
+}
+
+
+/* ------------------copy right -------------------------- */
+.copyright{
+    font-family: Roboto-Regular;
+    font-size: 10px;
+    color: #5a5a5a;
+    position: absolute;
+    left: calc(50% - 111px);
+    bottom: 20px;
+}
+
+@media(max-width:750px){
+    .copyright{
+        margin-top: 340px;
+    }
+}
+@media (max-width:320px){
+    
+    .Rectangle-3-Copy-2{
+        background-image: url(./images/login-background.png);
+        background-repeat: no-repeat;
+    }
+    .Workflow-tool, .Testing-Hub-Manageme{
+        color:#FFFFFF;
+    }
+
+    .hp-icon{
+        background-image: url(./hp-minimum.png);
+    }
+
+}
+
+/* -------------------------- use the same style for Sign and Sign out ------------------------------ */
+
+.password-forget-recover{
+    font-family: Roboto-Bold;
+    font-size: 12px;
+    color: #0096d6;
+    position: relative;
+    left:185px;
+    top:9px;
+}
+
+.password-forget-recover:hover{
+    border-bottom: 1px solid;
+}
+
+.checkbox{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.copyright-sign-in{
+    margin-left: 48px;
+    margin-top: 270px;
+    font-family: Roboto-Regular;
+    font-size: 10px;
+    color: #5a5a5a;
+}
