@@ -9,8 +9,13 @@ function showLoader() {
 function hideLoader() {
     $('.loader').hide();
 }
-const totalPages = 20;
-function displayItems(page) {
+
+
+
+let pageNum = 1 ; // global variable for page
+function displayItems(page, dataLength, numItemsPerPage) {
+    
+    const totalPages = totalPages1;
 
     const ulTag = document.getElementById("ul-pagination");
     let liTag = '';
@@ -30,16 +35,16 @@ function displayItems(page) {
     }
 
     // how many pages or li show before the current Li
-    if(page == pageLength){ // if page is equal to the totalPages then subtract 2 from beforPages
+    if (page == totalPages) { // if page is equal to the totalPages then subtract 2 from beforPages
         beforPages = beforPages - 2;
-    }else if(page == totalPages -1){ // if page is equal to the totalPages-1 then subtract 1 from beforPages
+    } else if (page == totalPages - 1) { // if page is equal to the totalPages-1 then subtract 1 from beforPages
         beforPages = beforPages - 1;
     }
 
     // how many pages or li show after the current Li
-    if(page == 1){ // if page is equal to 1 then add 2 to afterPages
+    if (page == 1) { // if page is equal to 1 then add 2 to afterPages
         afterPages = afterPages + 2;
-    }else if(page == 2){ // if page is equal to 2 then add 1 to afterPages
+    } else if (page == 2) { // if page is equal to 2 then add 1 to afterPages
         afterPages = afterPages + 1;
     }
 
@@ -72,51 +77,71 @@ function displayItems(page) {
         liTag += `<li class="btn next" onclick="displayItems(${page + 1})"><span><i class="fas fa-angle-right"></i>Next</span></li>`;
     }
     ulTag.innerHTML = liTag;
+    pageNum = page;
+    loadPage();
 }
+
+let productsData = [];
+const numItemsPerPage = 10;
+
+const loadPage = () => {
+
+    let arrayEnd = pageNum *numItemsPerPage;
+    let arrayStart = arrayEnd - numItemsPerPage;
+
+    let requiredItems = _.slice(productsData,arrayStart,arrayEnd);
+
+    $(".row1").html('');
+    for (let i = 0; i < requiredItems.length; i++) {
+
+
+        $(".row1").append(`<div class='item-container' productId=${requiredItems[i].id} id=item_${i}> \
+        <div class = 'item-image-container'> \
+        <div class= 'item-image'></div>\
+        </div>\
+        <p style=" grid-row: 2;">★★★★☆</p> \
+        <div class ='last-section' id='test_${i}'></div>\
+        </div>`);
+
+        var para = document.createElement("p");
+        para.className = "description";
+        var node = document.createTextNode(requiredItems[i].title);
+        para.appendChild(node);
+        const element = document.getElementById("test_" + i);
+        element.appendChild(para);
+
+
+        // create p element to fill id in
+        const para1 = document.createElement("p");
+        para1.className = "price";
+        const node1 = document.createTextNode("Price: " + requiredItems[i].id + "$");
+        para1.appendChild(node1);
+        const element1 = document.getElementById(`test_${i}`);
+        element1.appendChild(para1);
+    }
+
+    $(".item-container").on("click", function (e) {
+        const item_id = $(e.currentTarget).attr('productId');
+        location.href = "./item.html?" + item_id;
+    });
+}
+/*
+ * When document is ready
+ */
+let dataLength = 0;
 
 $(document).ready(function () {
     showLoader();
 
     $.get("https://jsonplaceholder.typicode.com/todos/", function (data, status) {
         hideLoader();
+        productsData = data;
+        dataLength = productsData.length;
+        loadPage();
 
-        let dataLength = data.length;
-        let item_per_page = 20;
+        totalPages1 = dataLength/numItemsPerPage;
 
-        for (let i = 0; i < 0; i++) {
-
-
-            $(".row1").append(`<div class='item-container' productId=${data[i].id} id=item_${i}> \
-            <div class = 'item-image-container'> \
-            <div class= 'item-image'></div>\
-            </div>\
-            <p style=" grid-row: 2;">★★★★☆</p> \
-            <div class ='last-section' id='test_${i}'></div>\
-            </div>`);
-
-            var para = document.createElement("p");
-            para.className = "description";
-            var node = document.createTextNode(data[i].title);
-            para.appendChild(node);
-            const element = document.getElementById("test_" + i);
-            element.appendChild(para);
-
-
-            // create p element to fill id in
-            const para1 = document.createElement("p");
-            para1.className = "price";
-            const node1 = document.createTextNode("Price: " + data[i].id + "$");
-            para1.appendChild(node1);
-            const element1 = document.getElementById(`test_${i}`);
-            element1.appendChild(para1);
-        }
-
-        $(".item-container").on("click", function (e) {
-            const item_id = $(e.currentTarget).attr('productId');
-            location.href = "./item.html?" + item_id;
-        });
-
-        // Selecting required element
-        displayItems(10);
+        // By default it will display the first 20 items
+            displayItems(1,dataLength,numItemsPerPage);
     });
 });
