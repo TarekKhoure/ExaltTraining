@@ -20,7 +20,6 @@ body{
 .row1 > div{
     
     border-radius: 5.5rem;
-    /* border: 1px solid #004969; */
     padding: 2em;
     box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
     background-color: #FFF;
@@ -30,8 +29,8 @@ body{
     display: flex;
     flex-direction: column;
     text-align: left;
-    background: #F6BE3B;
-    color: #0A1D37;
+    background: #007F86;
+    color: #FFF;
     padding-left:0.5rem;
     font-weight: 700;
     border-radius: 15px;
@@ -39,7 +38,7 @@ body{
 
 .price{
     align-self: flex-start;
-    color: #0A1D37;
+    color: #FFF;
     font-weight: 700;
 }
 

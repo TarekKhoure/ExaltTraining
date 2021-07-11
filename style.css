@@ -149,7 +149,7 @@ li{
 
 
 .wrapper{
-    margin: 2em;
+    margin: 0 1em;
 }
 
 .row1{
@@ -199,7 +199,52 @@ li{
     justify-content: flex-end;
 }
 
+/* Pagination */
+.pagination > ul {
+    display: flex;
+    border-radius: 50px;
+    justify-content: center;
+    background-color: #FFF ;
+    padding: 5px;
+    
+}
+
+.pagination > ul >li {
+    list-style: none;
+    cursor: pointer;
+    line-height: 2;
+    padding: 8px;
+
+}
+
+/* .pagination > ul > li.btn-prev{
+    background-color: #007F86;
+    border-radius: 25px 5px 5px 25px;
+    width: 55px;
+    text-align: center;
+}
+
+.pagination > ul > li.btn-next{
+    background-color: #007F86;
+    border-radius: 5px 25px 25px 5px;
+    width: 55px;
+    text-align: center;
+} */
+
+
+
+
+
 /* ------------------------- media queires -----------------------------*/
+@media (max-width: 905px){
+    .container{
+        align-content: center;
+    }
+    .row1{
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
 @media (max-width: 743px){
     .container{
         align-content: center;

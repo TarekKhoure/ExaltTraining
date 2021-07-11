@@ -18,7 +18,7 @@ $(document).ready(function () {
         hideLoader();
         let dataLength = data.length;
 
-        for (let i = 0; i < dataLength; i++) {
+        for (let i = 0; i < 20; i++) {
 
 
             $(".row1").append(`<div class='item-container' productId=${data[i].id} id=item_${i}> \
