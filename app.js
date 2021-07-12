@@ -18,14 +18,14 @@ function selectNumberOfItems() {
 }
 
 // Close the dropdown if the user clicks outside of it
-window.onclick = function (event) {
+window.onclick = function dropDown(event) {
     if (!event.target.matches('.dropbtn')) {
-        localStorage.setItem("Items",event.target.innerText);
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;
         for (i = 0; i < dropdowns.length; i++) {
             var openDropdown = dropdowns[i];
             if (openDropdown.classList.contains('show')) {
+                localStorage.setItem("Items",event.target.innerText);
                 openDropdown.classList.remove('show');
             }
         }
@@ -49,14 +49,15 @@ function getNumberOfItems() {
     let items;
     localStorage_items = localStorage.getItem("Items"); // get number of items from local storage
 
-    if (localStorage_items == "") { // if local storage equal null
+    if (localStorage_items ==  null || localStorage_items ==  "") { // if local storage equal null
         queryString = window.location.search;
         items = queryString.slice(1);
         localStorage.setItem("Items",items);
-    }else{
+    }else {
         items = localStorage.getItem("Items");
     }
     document.getElementById('buttonName').innerText = items;
+
     return items;
 }
 
