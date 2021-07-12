@@ -105,6 +105,7 @@ header{
     height: 50px;
     background: #F6BE3B;
     padding-right: 15px;
+    border-radius: 50px;
 }
 
 .fas{
@@ -116,6 +117,7 @@ header{
     outline-style: none;
     margin-left: 1em;
     background: #F6BE3B;
+    border-radius: 50px;
 }
 
 #items-per-page{
