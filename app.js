@@ -51,7 +51,6 @@ function searchForItems() {
     
     for (i = 0; i < filterData.length; i++) {
         a = filterData[i].title;
-        // txtValue = a || a.innerText;
         if (a.toUpperCase().indexOf(filter) > -1) {
             data[j] = filterData[i];
             j++;
