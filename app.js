@@ -152,7 +152,7 @@ function displayItems(page, dataLength, numItemsPerPage) {
     ulTag.innerHTML = liTag;
     pageNum = page;
 
-    // localStorage.setItem("PageNumber", page); // add page number to local storage
+    localStorage.setItem("PageNumber", page); // add page number to local storage
     loadPage();
 }
 
