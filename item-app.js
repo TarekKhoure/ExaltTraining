@@ -4,7 +4,6 @@ $(document).ready(function () {
 
 const queryString = window.location.search;
 const item_id = queryString.slice(1);
-console.log(item_id);
 
     $.get("https://jsonplaceholder.typicode.com/todos/", function (data, status) {
 

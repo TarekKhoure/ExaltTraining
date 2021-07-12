@@ -68,6 +68,7 @@ header{
     position: fixed;
     width: 100%;
     top: 0;
+    z-index: 1;
 }
 
 .SignUp-In{
@@ -88,13 +89,91 @@ header{
     color: #F6BE3B;
 }
 
-.ItemsPerPage{
+/* Search and number of items */
+.searchAndItems{
+    position: relative;
+    top: 5em;
+    left: 23%;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    border-radius: 50px;
+}
+
+.search {
+    display: flex;
+    height: 50px;
+    background: #F6BE3B;
+    padding-right: 15px;
+}
+
+.fas{
+    align-self: center;
+}
+
+#myInput{
+    border-style: none;
+    outline-style: none;
+    margin-left: 1em;
+    background: #F6BE3B;
+}
+
+#items-per-page{
+    font-weight: 500;
+    margin-left: 3em;
+}
+
+.dropbtn {
+    background-color: #F6BE3B;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #F6BE3B;
+    color: #000000;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    font-family: 'Lora',serif;
+    font-weight: 700;
+    align-self: center;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 50px;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown a:hover {background-color: #ddd;}
+  
+  .show {display: block;}
+/* .ItemsPerPage{
     position: relative;
 }
 
 #number-of-items{
     position: absolute;
     width: 40%;
+    color: #FFF;
+    left:0;
 }
 
 .sub-menu{
@@ -104,7 +183,7 @@ header{
     background-color: seashell;
     left: 0;
     top:100%;
-}
+} */
 
 
 /*--------------------------- footer ---------------------------*/
@@ -298,7 +377,10 @@ li{
     }
     .row1{
         grid-template-columns: repeat(2, 1fr);
-        margin-top: 5em; 
+        margin-top: 6em; 
+    }
+    .searchAndItems{
+        margin: 1em 0;
     }
 }
 
@@ -328,11 +410,16 @@ li{
 @media (max-width: 400px){
     .row1{
         grid-template-columns: 1fr;
-        margin-top: 12em; 
+        margin-top: 7em; 
     }
 
     .item-image-container{
         justify-content: center;
+    }
+
+    .searchAndItems{
+        margin-top: 7em;
+        left:17%;
     }
 }
 /* ---------------------------------------------------------------- */

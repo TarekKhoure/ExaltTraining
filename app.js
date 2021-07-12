@@ -10,12 +10,64 @@ function hideLoader() {
     $('.loader').hide();
 }
 
+/*
+ * Funtion to show drop down menu and, which user can select how many items wants on his/her page
+ */
+function selectNumberOfItems() {
+    document.getElementById("myDropdown").classList.toggle("show");
+    let numOfItems = getNumberOfItems();
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function (event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+function getNumberOfItems() {
+    const queryString = window.location.search;
+    const items = queryString.slice(1);
+    document.getElementById('buttonName').innerText = items;
+    return items;
+}
 
 
-let pageNum = 1 ; // global variable for page
-function displayItems(page, dataLength, numItemsPerPage) {
+function searchForItems() {
+    var input;
+    var filter;
+    var a;
+    var i,j=0;
+    var data = [];
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
     
-    const totalPages = totalPages1;
+    for (i = 0; i < filterData.length; i++) {
+        a = filterData[i].title;
+        // txtValue = a || a.innerText;
+        if (a.toUpperCase().indexOf(filter) > -1) {
+            data[j] = filterData[i];
+            j++;
+        }
+    }
+
+    productsData = data;
+    displayItems(1, productsData.length, numItemsPerPage);
+}
+
+
+
+let pageNum = 1; // global variable for page
+function displayItems(page, dataLength, numItemsPerPage) {
+
+    const totalPages = Math.ceil(dataLength / numItemsPerPage);
 
     const ulTag = document.getElementById("ul-pagination");
     let liTag = '';
@@ -24,11 +76,11 @@ function displayItems(page, dataLength, numItemsPerPage) {
     let afterPages = page + 1;
 
     if (page > 1) {   // if page > 1 then add new li that shows previous button
-        liTag += `<li class="btn prev" onclick="displayItems(${page - 1})"><span><i class="fas fa-angle-left"></i>Prev</span></li>`;
+        liTag += `<li class="btn prev" onclick="displayItems(${page - 1},${dataLength},${numItemsPerPage})"><span><i class="fas fa-angle-left"></i>Prev</span></li>`;
     }
 
     if (page > 2) { // if page > 2 then add new li tag with 1 value
-        liTag += `<li class="numb" onclick="displayItems(1)"><span>1</span></li>`;
+        liTag += `<li class="numb" onclick="displayItems(1,${dataLength},${numItemsPerPage})"><span>1</span></li>`;
         if (page > 3) { // if page > 3 then add new li tag with (...)
             liTag += `<li class="dots"><span>...</span></li>`;
         }
@@ -62,19 +114,19 @@ function displayItems(page, dataLength, numItemsPerPage) {
         } else { // else leave empty to the active liVariable
             activeLi = "";
         }
-        liTag += `<li class="numb ${activeLi}" onclick="displayItems(${pageLength})"><span>${pageLength}</span></li>`;
+        liTag += `<li class="numb ${activeLi}" onclick="displayItems(${pageLength},${dataLength},${numItemsPerPage})"><span>${pageLength}</span></li>`;
     }
 
     if (page < totalPages - 1) { // if page < totalPages -1  then shown the last li or page which is 20
         if (page < totalPages - 2) { // if page < totalPages -2  then shown the show(...) befor last page
             liTag += `<li class="dots"><span>...</span></li>`;
         }
-        liTag += `<li class="numb" onclick="displayItems(${totalPages})"><span>${totalPages}</span></li>`;
+        liTag += `<li class="numb" onclick="displayItems(${totalPages},${dataLength},${numItemsPerPage})"><span>${totalPages}</span></li>`;
 
     }
 
     if (page < totalPages) {   // if page < totalpages then add new li that shows next button
-        liTag += `<li class="btn next" onclick="displayItems(${page + 1})"><span><i class="fas fa-angle-right"></i>Next</span></li>`;
+        liTag += `<li class="btn next" onclick="displayItems(${page + 1},${dataLength},${numItemsPerPage})"><span><i class="fas fa-angle-right"></i>Next</span></li>`;
     }
     ulTag.innerHTML = liTag;
     pageNum = page;
@@ -82,14 +134,14 @@ function displayItems(page, dataLength, numItemsPerPage) {
 }
 
 let productsData = [];
-const numItemsPerPage = 10;
+let numItemsPerPage = 10;
 
 const loadPage = () => {
 
-    let arrayEnd = pageNum *numItemsPerPage;
+    let arrayEnd = pageNum * numItemsPerPage;
     let arrayStart = arrayEnd - numItemsPerPage;
 
-    let requiredItems = _.slice(productsData,arrayStart,arrayEnd);
+    let requiredItems = _.slice(productsData, arrayStart, arrayEnd);
 
     $(".row1").html('');
     for (let i = 0; i < requiredItems.length; i++) {
@@ -136,12 +188,19 @@ $(document).ready(function () {
     $.get("https://jsonplaceholder.typicode.com/todos/", function (data, status) {
         hideLoader();
         productsData = data;
+        filterData = [...data];
         dataLength = productsData.length;
         loadPage();
+        numItemsPerPage = getNumberOfItems();
 
-        totalPages1 = dataLength/numItemsPerPage;
+        if (numItemsPerPage == "") {
+            numItemsPerPage = 20;
+            document.getElementById('buttonName').innerText = numItemsPerPage;
+        }
+
+        totalPages1 = dataLength / numItemsPerPage;
 
         // By default it will display the first 20 items
-            displayItems(1,dataLength,numItemsPerPage);
+        displayItems(1, dataLength, numItemsPerPage);
     });
 });

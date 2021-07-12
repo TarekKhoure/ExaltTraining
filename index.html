@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./app.js"></script>
     <script src="./lodash.js"></script>
+    <script src="https://kit.fontawesome.com/9cd9559572.js" crossorigin="anonymous"></script>
 </head>
 
 
@@ -38,17 +39,24 @@
                     <p> | </p>
                     <p><a href="./sign-in.html" class="sign-in-link">Sign In</a></p>
                 </div>
-                <div class="ItemsPerPage">
-                    <a id="number-of-items">Number Of Items</a>
-                        <ul class="sub-menu">
-                            <li class="menu-item"><a href="#"></a>5</li>
-                            <li class="menu-item"><a href="#"></a>10</li>
-                            <li class="menu-item"><a href="#"></a>20</li>
-                            <li class="menu-item"><a href="#"></a>40</li>
-                            <li class="menu-item"><a href="#"></a>50</li> 
-                        </ul>
-                </div>
         </header>
+        <!-- ------------------------------ Search & items Select -------------------------------->
+        <div class="searchAndItems">
+            <div class="search">
+                <input type="text" id="myInput" onkeyup="searchForItems()" placeholder="Search for text..">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="dropdown">
+                <button onclick="selectNumberOfItems()" class="dropbtn" id="buttonName">Items</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="?5">5</a>
+                    <a href="?10">10</a>
+                    <a href="?20">20</a>
+                    <a href="?40">40</a>
+                    <a href="?50">50</a>
+                </div>
+            </div>
+        </div>
         <!-- -------------------------------------- items -------------------------------------- -->
         <div class="wrapper">
             <div class="row1"></div>
