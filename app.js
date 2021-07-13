@@ -156,15 +156,11 @@ function displayItems(page, dataLength, numItemsPerPage) {
     loadPage();
 }
 
+
 let productsData = [];
 let numItemsPerPage = 10;
-
 const loadPage = () => {
 
-    // const page = localStorage.getItem('PageNumber');
-    // if (page) {
-    //     pageNum = page;
-    // }
     let arrayEnd = pageNum * numItemsPerPage;
     let arrayStart = arrayEnd - numItemsPerPage;
 
@@ -214,13 +210,12 @@ const fetchData = async () => {
 
 function displayData(data) {
     hideLoader();
+
     productsData = data;
     filterData = [...data];
     dataLength = productsData.length;
 
-
     numItemsPerPage = getNumberOfItems();
-
 
     if (numItemsPerPage == null || numItemsPerPage == "") {
         numItemsPerPage = 20;
