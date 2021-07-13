@@ -41,7 +41,7 @@
 body{
     margin: 0;
     font-family: 'Ubuntu',sans-serif;
-    background-image: linear-gradient(to bottom, #1f1f1f, #3f3f41, #626266, #86878d, #acafb7, #aeb0b9, #afb2ba, #b1b3bc, #8e8e95, #6b6b70, #4b4b4c, #2c2c2c);
+    background-image: linear-gradient(to bottom, #1f1f1f, #3f3f40, #636363, #88888a, #b0b0b2, #b0b0b2, #b0b0b2, #b0b0b2, #88888a, #636363, #3f3f40, #1f1f1f);
 }
     .container{
     display: flex;
@@ -51,7 +51,7 @@ body{
 .container > div{
     margin: 0 3em;
 }
-
+ 
 @media (max-width: 400px){
     .container{
         flex-direction: column;
@@ -167,26 +167,6 @@ header{
   .dropdown a:hover {background-color: #ddd;}
   
   .show {display: block;}
-/* .ItemsPerPage{
-    position: relative;
-}
-
-#number-of-items{
-    position: absolute;
-    width: 40%;
-    color: #FFF;
-    left:0;
-}
-
-.sub-menu{
-    position: absolute;
-    box-shadow: 0 0 10px rgba(0 , 0, 0, 0.2);
-    list-style: none;
-    background-color: seashell;
-    left: 0;
-    top:100%;
-} */
-
 
 /*--------------------------- footer ---------------------------*/
 
@@ -233,7 +213,7 @@ header{
 }
 
 .current-page{
-    border-bottom: 1px solid #FFF;
+    border-bottom: 1px solid #FED330;
 }
 
 .current-page:hover{

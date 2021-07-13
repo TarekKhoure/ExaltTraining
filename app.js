@@ -25,7 +25,7 @@ window.onclick = function dropDown(event) {
         for (i = 0; i < dropdowns.length; i++) {
             var openDropdown = dropdowns[i];
             if (openDropdown.classList.contains('show')) {
-                localStorage.setItem("Items",event.target.innerText);
+                localStorage.setItem("Items", event.target.innerText);
                 openDropdown.classList.remove('show');
             }
         }
@@ -34,12 +34,12 @@ window.onclick = function dropDown(event) {
 }
 
 
-function getLastPageOpened(){
+function getLastPageOpened() {
     const PreviousPage = localStorage.getItem("PageNumber");
-    if(PreviousPage == null || PreviousPage == ""){
+    if (PreviousPage == null || PreviousPage == "") {
         return 1;
     }
-    else{
+    else {
         return PreviousPage;
     }
 }
@@ -49,11 +49,11 @@ function getNumberOfItems() {
     let items;
     localStorage_items = localStorage.getItem("Items"); // get number of items from local storage
 
-    if (localStorage_items ==  null || localStorage_items ==  "") { // if local storage equal null
+    if (localStorage_items == null || localStorage_items == "") { // if local storage equal null
         queryString = window.location.search;
         items = queryString.slice(1);
-        localStorage.setItem("Items",items);
-    }else {
+        localStorage.setItem("Items", items);
+    } else {
         items = localStorage.getItem("Items");
     }
     document.getElementById('buttonName').innerText = items;
@@ -184,6 +184,7 @@ const loadPage = () => {
 
         var para = document.createElement("p");
         para.className = "description";
+        para.title = requiredItems[i].title;
         var node = document.createTextNode(requiredItems[i].title);
         para.appendChild(node);
         const element = document.getElementById("test_" + i);
@@ -204,34 +205,69 @@ const loadPage = () => {
         location.href = "./item.html?" + item_id;
     });
 }
+const fetchData = async () => {
+
+    const res = await fetch("https://jsonplaceholder.typicode.com/todos/");
+    const data1 = await res.json();
+    displayData(data1);
+}
+
+function displayData(data) {
+    hideLoader();
+    productsData = data;
+    filterData = [...data];
+    dataLength = productsData.length;
+
+
+    numItemsPerPage = getNumberOfItems();
+
+
+    if (numItemsPerPage == null || numItemsPerPage == "") {
+        numItemsPerPage = 20;
+        document.getElementById('buttonName').innerText = numItemsPerPage;
+    } else {
+        document.getElementById('buttonName').innerText = numItemsPerPage;
+    }
+
+    let lastPage = getLastPageOpened();
+
+    // By default it will display the first 20 items
+    displayItems(lastPage, dataLength, numItemsPerPage);
+
+
+
+    // $.get("https://jsonplaceholder.typicode.com/todos/", function (data, status) {
+
+    // hideLoader();
+    // productsData = data;
+    // filterData = [...data];
+    // dataLength = productsData.length;
+
+
+    // numItemsPerPage = getNumberOfItems();
+
+
+    // if (numItemsPerPage == null || numItemsPerPage == "") {
+    //     numItemsPerPage = 20;
+    //     document.getElementById('buttonName').innerText = numItemsPerPage;
+    // } else {
+    //     document.getElementById('buttonName').innerText = numItemsPerPage;
+    // }
+
+    // let lastPage = getLastPageOpened();
+
+    // // By default it will display the first 20 items
+    // displayItems(lastPage, dataLength, numItemsPerPage);
+    // });
+}
 /*
  * When document is ready
  */
+
 let dataLength = 0;
 
 $(document).ready(function () {
     showLoader();
+    fetchData();
 
-    $.get("https://jsonplaceholder.typicode.com/todos/", function (data, status) {
-        hideLoader();
-        productsData = data;
-        filterData = [...data];
-        dataLength = productsData.length;
-
-
-        numItemsPerPage = getNumberOfItems();
-
-
-        if (numItemsPerPage == null || numItemsPerPage == "") {
-            numItemsPerPage = 20;
-            document.getElementById('buttonName').innerText = numItemsPerPage;
-        } else {
-            document.getElementById('buttonName').innerText = numItemsPerPage;
-        }
-
-        let lastPage = getLastPageOpened();
-
-        // By default it will display the first 20 items
-        displayItems(lastPage, dataLength, numItemsPerPage);
-    });
 });
